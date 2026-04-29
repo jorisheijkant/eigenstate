@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "blog_posts",
+  "kind": "singleType",
+  "collectionName": "landing_pages",
   "info": {
-    "singularName": "blog-post",
-    "pluralName": "blog-posts",
-    "displayName": "Blog Post"
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "Landing Page"
   },
   "options": {
     "draftAndPublish": true
@@ -17,9 +17,6 @@
     "description": {
       "type": "text"
     },
-    "date": {
-      "type": "datetime"
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -29,13 +26,6 @@
         "videos",
         "audios"
       ]
-    },
-    "content": {
-      "type": "blocks"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
     }
   }
 }
