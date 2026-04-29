@@ -52,6 +52,10 @@
     },
     "free": {
       "type": "boolean"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }

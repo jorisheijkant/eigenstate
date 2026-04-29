@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <h1 class="title">{{ landingPageTitle }}</h1>
-    <p class="description">{{ landingPageDescription }}</p>
-
+  <main class="main">
     <BlogPostsGallery :posts="blogPostsArray" />
-  </div>
+  </main>
 </template>
 
 <script setup>
