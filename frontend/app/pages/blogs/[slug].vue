@@ -6,34 +6,42 @@
       <ExtendedImage class="article__image" :imageObject="postImage" />
       <p class="article__lead">{{ postDescription }}</p>
 
+      <StrapiBlocks v-if="postContent" :content="postContent" />
     </article>
   </main>
 </template>
 
 <script setup>
-  const route = useRoute()
+import {StrapiBlocks} from 'vue-strapi-blocks-renderer'
 
-  const {data: post} = await useFetch(`/api/posts/${route.params.slug}`)
+const route = useRoute()
 
-  const firstPost = computed(() => {
-    if (!post.value) return undefined
-    return post.value.data?.[0] 
-  })
+const {data: post} = await useFetch(`/api/posts/${route.params.slug}`)
 
-  const postTitle = computed(() => {
-    if(!firstPost.value) return undefined
-    return firstPost.value.title
-  })
+const firstPost = computed(() => {
+  if (!post.value) return undefined
+  return post.value.data?.[0] 
+})
 
-  const postDescription = computed(() => {
-    if(!firstPost.value) return undefined
-    return firstPost.value.description
-  })
+const postTitle = computed(() => {
+  if(!firstPost.value) return undefined
+  return firstPost.value.title
+})
 
-  const postImage = computed(() => {
-    if(!firstPost.value) return undefined 
-    return firstPost.value.image
-  })
+const postDescription = computed(() => {
+  if(!firstPost.value) return undefined
+  return firstPost.value.description
+})
+
+const postImage = computed(() => {
+  if(!firstPost.value) return undefined 
+  return firstPost.value.image
+})
+
+const postContent = computed(() => {
+  if(!firstPost.value) return undefined
+  return firstPost.value.content
+})
 
 </script>
 
